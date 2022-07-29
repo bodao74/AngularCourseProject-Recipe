@@ -27,6 +27,10 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
           mostrar os ingredientes, o que acaba refletido  na página html 
           (é feita uma nova cópai).*/
   }
+
+  onEditItem(index: number) {
+    this.slService.startEditing.next(index);
+  }
   ngOnDestroy(): void {
     this.igChangedSub.unsubscribe();
   }

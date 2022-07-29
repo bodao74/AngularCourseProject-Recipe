@@ -4,9 +4,8 @@ import { Ingredient } from "../shared/ingredient.model";
 
 export class ShoppingListService {
     //incluir novo evento para saber da alteração da lista.
-
-    //  ingredientsChanged = new EventEmitter<Ingredient[]>();
     ingredientsChanged = new Subject<Ingredient[]>();
+    startEditing = new Subject<number>();
 
     private ingredients: Ingredient[] = [
         new Ingredient('Apples', 5),
@@ -16,6 +15,10 @@ export class ShoppingListService {
 
     getIngredients() {
         return this.ingredients.slice();
+    }
+
+    getIngredient(index: number){
+        return this.ingredients[index];
     }
 
     addIngredient(ingredient: Ingredient) {
